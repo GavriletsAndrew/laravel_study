@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DirectorController;
+use \App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/director', [DirectorController::class, 'index']);
+Route::get('/book', [BookController::class, 'index']);
+
 
