@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CinemaController extends Controller
 {
-    public function movie()
+    public function cinema()
     {
         $cinemaModel = Cinema::all();
         return view('index', [
