@@ -35,30 +35,30 @@ class ContactUsFormController extends Controller
 
 
             if ($id != null) {
-                $ppl = DB::select(DB::raw("SELECT * FROM cinemas WHERE id = :id"),
+                $id_test = DB::select(DB::raw("SELECT * FROM cinemas WHERE id = :id"),
                     [
                         "id" => $id,
                     ]);
                 return view('contact', [
-                    'ppl' => $ppl,
+                    'id_test' => $id_test,
                 ]);
             } elseif ($name != null) {
-                $ppl = DB::select(DB::raw("SELECT * FROM films WHERE title LIKE :name "),
+                $name_test = DB::select(DB::raw("SELECT * FROM films WHERE title LIKE :name "),
                     [
                         "name" => '%' . $name . '%',
                     ]);
                 return view('contact', [
-                    'ppl' => $ppl,
+                    'name_test' => $name_test,
                 ]);
             } elseif ($calendar != null) {
-                $ppl = DB::select(DB::raw("SELECT * FROM films WHERE film_start <= :calendar
+                $calendar_tests = DB::select(DB::raw("SELECT * FROM films WHERE film_start <= :calendar
                                                                      and film_end >= :calendar1 "),
                     [
                         "calendar" => $calendar,
                         "calendar1" => $calendar
                     ]);
                 return view('contact', [
-                    'ppl' => $ppl,
+                    'calendar_tests' => $calendar_tests,
                 ]);
             } else {
                 return view('contact', [

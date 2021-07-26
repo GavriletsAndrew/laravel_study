@@ -23,9 +23,9 @@ class FilmFactory extends Factory
     {
         return [
             'title' => 'Film ' . $this->faker->word,
-//            'film_start' => $this->faker->date('Y-m-d','now',),
-//            'film_go' => $this->faker->date('Y-m-d','now',),
-//            'film_end' => $this->faker->date('Y-m-d','now',),
+            'film_start' => $this->faker->dateTime($max = 'now', $timezone = null),
+            'film_go' => $this->faker->dateTime($max = 'now', $timezone = null),
+            'film_end' => $this->faker->dateTime($max = 'now', $timezone = null),
             'price' => $this->faker->numberBetween(50, 100),
         ];
     }
