@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Cinema;
-use App\Models\Film;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,14 +12,34 @@ class ContactUsFormController extends Controller
         return view('contact');
     }
 
+    public function show($id)
+    {
+        $id_film = DB::select(DB::raw("SELECT c.* FROM films f JOIN hall_films hf on f.id = hf.film_id
+                       JOIN cinemas c on hf.cinema_id = c.id where film_id = :id ;"),
+            [
+                "id" => $id,
+            ]);
+        return view('show', [
+            'id_films' => $id_film
+        ]);
+    }
+
+    public function showСinema($id)
+    {
+        $id_cinema = DB::select(DB::raw("SELECT * FROM halls h JOIN cinemas c  on h.id = c.id
+                                                where c.id = :id ;"),
+            [
+                "id" => $id,
+            ]);
+
+        return view('showcinema', [
+            'id_cinemas' => $id_cinema
+        ]);
+    }
+
 //     Store Contact Form data
     public function ContactUsForm(Request $request)
     {
-        // Form validation
-//        $this->validate($request, [
-//            'id' => 'required',
-//        ]);
-        //  Store data in database
         if ($request->isMethod('post')) {
 
 //          value in form
@@ -31,7 +48,6 @@ class ContactUsFormController extends Controller
             $name = $request->name;
             $calendar = $request->calendar;
             $ppl = DB::select(DB::raw("SELECT * FROM cinemas"));
-
 
 
             if ($id != null) {

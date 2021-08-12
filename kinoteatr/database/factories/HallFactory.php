@@ -24,7 +24,7 @@ class HallFactory extends Factory
         return [
             'title' => 'Hall name ' . $this->faker->word,
             'number' => $this->faker->numberBetween(100, 200),
-            'cinema_id' => $this->faker->numberBetween(1, 5),
+            'cinema_id' => $this->faker->numberBetween(1, 6),
         ];
     }
 }

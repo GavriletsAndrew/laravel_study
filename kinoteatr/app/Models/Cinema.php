@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cinema extends Model
 {
+
     use HasFactory;
-    public function hall(){
-        return $this->hasMany(Hall::class);
+
+    public function halla()
+    {
+        return $this->hasOne(Hall::class);
     }
 }

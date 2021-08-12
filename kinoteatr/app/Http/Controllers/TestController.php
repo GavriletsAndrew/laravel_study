@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cinema;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 
 
 class TestController extends Controller
@@ -15,13 +13,10 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    public function index()
-//    {
-//        $hallModel = Cinema::all();
-//            return view('testshow', [
-//            'hallModel' => $hallModel,
-//        ]);
-//    }
+    public function index()
+    {
+       //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,23 +45,10 @@ class TestController extends Controller
      * @param \App\Models\Cinema $cinema
      * @return \Illuminate\Http\Response
      */
-//    public function show(Cinema $cinema)
-//    {
-////        dd($cinema->all());die();
-//        return view('addform')->with('cinema',$cinema);
-//    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Cinema $cinema
-     * @return \Illuminate\Http\Response
-     */
-//    public function someMethod(Cinema $cinema)
-//    {
-//        dd($cinema->where('id', 1)->first());
-//        return view('showform')->with('cinema', $cinema);
-//    }
+    public function show(Cinema $cinema)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -102,20 +84,4 @@ class TestController extends Controller
         //
     }
 
-    public function index()
-    {
-//        $lastName = addslashes($request->firstName);
-        //add more logic to validate and secure user entered data before turning it loose in a query
-//        return Redirect::to('people/' . $lastName);
-        return view('showform');
-    }
-
-    public function show($firstName)
-    {
-//        dd($firstName);
-        $qry = 'SELECT * FROM cinemas WHERE id = ' . $firstName . ' ';
-        $ppl = DB::select($qry);
-//        var_dump($ppl);die();
-        return view('testshow', ['ppl' => $ppl]);
-    }
 }

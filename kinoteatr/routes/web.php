@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\ContactUsFormController;
-use App\Http\Controllers\HallController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,19 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('index', [HallController::class, 'hall']);
-//Route::resource('test', TestController::class, );
-//Route::get('show', [TestController::class,'someMethod']);
-//Route::get('show', [TestController::class,'someMethod']);
-//Route::get('show', [TestController::class,'show']);
-//Route::post('testshow', [TestController::class,'someMethod']);
-//Route::resource('show', TestController::class );
+//test
 
-//Route::get('people', 'TestController@index');
-//Route::get('people/{lastName}', [TestController::class,'show']);
-//Route::get('people/{firstName}', [TestController::class,'show']);
-//Route::resource('showindex', TestController::class);
+//test
+
+Route::get('index', [FilmController::class, 'hall']);
+
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
-//Route::post('/contact', [ContactUsFormController::class, 'ContactAllForm'])->name('contact.store');
+Route::get('/show/{id}', [ContactUsFormController::class, 'show'])->name('contact.show');
+Route::get('/showcinema/{id}', [ContactUsFormController::class, 'showСinema'])->name('contact.showСinema');
+

@@ -23,6 +23,7 @@ class CinemaFactory extends Factory
     {
         return [
             'name' => 'Cinema ' . $this->faker->name,
+            'hall_id' => $this->faker->numberBetween(2,31),
         ];
     }
 }

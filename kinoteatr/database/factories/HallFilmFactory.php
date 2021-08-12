@@ -23,7 +23,7 @@ class HallFilmFactory extends Factory
     {
         return [
             'film_id'=>$this->faker->numberBetween(1,30),
-            'hall_id'=>$this->faker->numberBetween(1,60),
+            'cinema_id'=>$this->faker->numberBetween(2,6),
         ];
     }
 }

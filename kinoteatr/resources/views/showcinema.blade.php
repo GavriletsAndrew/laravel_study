@@ -8,12 +8,10 @@
         <th>Название фильма</th>
         <th>цена фильма</th>
     </tr>
-    @foreach($id_films as $id_film)
+    @foreach($id_cinemas as $id_cinema)
         <tr>
-
-            <td>{{$id_film->id}}</td>
-            <td><a href="{{route('contact.showСinema',$id_film->id)}}">{{$id_film->name}}</a></td>
-
+            <td>{{$id_cinema->id}}</td>
+            <td>{{$id_cinema->title}}</a></td>
         </tr>
 
     @endforeach

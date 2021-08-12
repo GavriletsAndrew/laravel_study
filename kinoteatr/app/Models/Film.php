@@ -9,4 +9,9 @@ class Film extends Model
 {
     use HasFactory;
 
+    public function get_films()
+    {
+        return $this->belongsToMany(Hall::class, 'hall_films');
+    }
+
 }
