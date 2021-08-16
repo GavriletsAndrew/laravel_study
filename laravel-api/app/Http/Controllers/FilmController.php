@@ -31,7 +31,7 @@ class FilmController extends Controller
 
     /**
      * Display the specified resource.
-     *test push
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
