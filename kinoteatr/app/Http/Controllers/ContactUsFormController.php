@@ -15,11 +15,14 @@ class ContactUsFormController extends Controller
 
     public function show($id)
     {
-        $id_film = DB::select(DB::raw("SELECT c.* FROM films f JOIN hall_films hf on f.id = hf.film_id
-                       JOIN cinemas c on hf.cinema_id = c.id where film_id = :id ;"),
-            [
-                "id" => $id,
-            ]);
+//        $id_film = DB::select(DB::raw("SELECT c.* FROM films f JOIN hall_films hf on f.id = hf.film_id
+//                       JOIN cinemas c on hf.cinema_id = c.id where film_id = :id ;"),
+//            [
+//                "id" => $id,
+//            ])
+         $id_film = DB::table('films')->join('hall_films', 'films.id', '=','hall_films.film_id')
+                                            ->join('cinemas','hall_films.cinema_id','=','cinemas.id')
+                                            ->where('film_id',$id)->get();
         return view('show', [
             'id_films' => $id_film
         ]);
@@ -59,7 +62,6 @@ class ContactUsFormController extends Controller
 //          query builder select all form table cinemas
             $ppl = Cinema::all();
 
-
             if ($id != null) {
 //                $id_test = DB::select(DB::raw("SELECT * FROM cinemas WHERE id = :id"),
 //              query builder select all form table cinemas
@@ -94,8 +96,8 @@ class ContactUsFormController extends Controller
 //                dd($calendar);
 //                dd($calendar1."test1");
                 $calendar_tests = DB::table('films')
-                    ->where('film_start','<',"$calendar")
-                    ->where('film_end','>',"$calendar")
+                    ->where('film_start','<=',$calendar)
+                    ->where('film_end','>=',$calendar)
                     ->get();
 ////                     );
 //                dd($calendar_tests);
