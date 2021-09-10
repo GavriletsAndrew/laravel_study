@@ -1,21 +1,20 @@
+@extends('layout.main')
+@section('content')
+@endsection
 <body>
-
-<table style="width:100%">
-
-    <tr>
-        <th>Название кино театра</th>
-        <th>Название кино зала</th>
-        <th>Название фильма</th>
-        <th>цена фильма</th>
-    </tr>
-    @foreach($id_cinemas as $id_cinema)
+<div class="container">
+    <table class="table">
         <tr>
-            <td>{{$id_cinema->id}}</td>
-            <td>{{$id_cinema->title}}</a></td>
+            <th>Название кино театра</th>
+            <th>Название кино зала</th>
         </tr>
-
-    @endforeach
-
-</table>
+        @foreach($id_cinemas as $id_cinema)
+            <tr>
+                <td>{{$id_cinema->id}}</td>
+                <td>{{$id_cinema->title}}</a></td>
+            </tr>
+        @endforeach
+    </table>
+</div>
+</div>
 </body>
-

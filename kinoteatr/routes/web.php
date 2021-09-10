@@ -21,8 +21,6 @@ Route::get('/', function () {
 
 //test
 
-//test
-
 Route::get('index', [FilmController::class, 'hall']);
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);

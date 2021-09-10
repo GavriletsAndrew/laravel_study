@@ -1,12 +1,15 @@
+@extends('layout.main')
+@section('content')
+@endsection
+
 <body>
 
-<table style="width:100%">
+<div class="container">
+<table class = "table">
 
     <tr>
         <th>Название кино театра</th>
         <th>Название кино зала</th>
-        <th>Название фильма</th>
-        <th>цена фильма</th>
     </tr>
     @foreach($id_films as $id_film)
         <tr>
@@ -19,5 +22,8 @@
     @endforeach
 
 </table>
+</div>
 </body>
+
+</html>
 
