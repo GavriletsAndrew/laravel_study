@@ -11,14 +11,18 @@
         <div class="form-group">
             <p>Выберите начало фильма:
                 <input type="date" name="calendar" id="calendar"></p>
-
-            <label>ID in array</label>
-            <input type="text" class="form-control" name="id" id="id">
-            <label>Name in array</label>
-            <input type="text" class="form-control" name="name" id="name">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">ID in array</label>
+                <input type="text" class="form-control" name="id" id="id">
+            </div>
+            <div>
+                <label for="exampleFormControlInput1" class="form-label">Name in array</label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
         </div>
-        <input type="submit" name="send" value="поиск" class="btn btn-dark btn-block">
-
+        <div class="col-auto">
+            <input type="submit" name="send" value="поиск" class="btn btn-primary btn-block">
+        </div>
     </form>
 </div>
 

@@ -20,9 +20,9 @@ class ContactUsFormController extends Controller
 //            [
 //                "id" => $id,
 //            ])
-         $id_film = DB::table('films')->join('hall_films', 'films.id', '=','hall_films.film_id')
-                                            ->join('cinemas','hall_films.cinema_id','=','cinemas.id')
-                                            ->where('film_id',$id)->get();
+        $id_film = DB::table('films')->join('hall_films', 'films.id', '=', 'hall_films.film_id')
+            ->join('cinemas', 'hall_films.cinema_id', '=', 'cinemas.id')
+            ->where('film_id', $id)->get();
         return view('show', [
             'id_films' => $id_film
         ]);
@@ -96,8 +96,8 @@ class ContactUsFormController extends Controller
 //                dd($calendar);
 //                dd($calendar1."test1");
                 $calendar_tests = DB::table('films')
-                    ->where('film_start','<=',$calendar)
-                    ->where('film_end','>=',$calendar)
+                    ->where('film_start', '<=', $calendar)
+                    ->where('film_end', '>=', $calendar)
                     ->get();
 ////                     );
 //                dd($calendar_tests);
